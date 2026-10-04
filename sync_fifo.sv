@@ -36,7 +36,7 @@ module sync_fifo #(
   logic [ADDR_W-1:0] rd_ptr, wr_ptr; 
   logic [ADDR_W:0]   count; // extra bit to represent DEPTH
 
-    //counter, wr_ptr logic
+  //counter, wr_ptr logic
   always_ff @(posedge clk, negedge rst_n) begin
     if(!rst_n)begin
       count <= '0;
@@ -53,7 +53,7 @@ module sync_fifo #(
   // the currently available data. 
   assign wr_ptr = count[ADDR_W-1:0];
 
-  //of the clock
+    //read pointer logic
     always_ff @(posedge clk, negedge rst_n) begin
     if(!rst_n)begin
       rd_ptr <= '0;
